@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options      |
 | ------------------ | ------ | -----------  |
-| email              | string | null: false  |
+| email              | string | unique: true |
 | encrypted_password | string | null: false  |
 | nickname           | string | null: false  |
 | first_name         | string | null: false  |
@@ -14,26 +14,27 @@
 | birthday           | date   | null: false  |
 
 # Association
--belongs_to :user_purchase
+-has_many :user_purchase
+-has_many :displays
 
 # displaysテーブル
 
 | Column             | Type           | Options     |
 | ------------------ | -------------- | ----------- |
-| image              | ActiveStorage  |             |
 | item_name          | string         | null: false  |
 | item_explanation   | text           | null: false  |
-| item_category      | integer        | null: false  |
-| item_condition     | integer        | null: false  |
-| delivery_fee       | integer        | null: false  |
-| delivery_area      | integer        | null: false  |
-| delivery_date      | integer        | null: false  |
+| item_category_id   | integer        | null: false  |
+| item_condition_id  | integer        | null: false  |
+| delivery_fee_id    | integer        | null: false  |
+| delivery_area_id   | integer        | null: false  |
+| delivery_date_id   | integer        | null: false  |
 | price              | integer        | null: false  |
 | user               | references     | null: false, foreign_key: true |
 
 # Association
 
 -belongs_to :user_purchase
+-belongs_to :user
  
 
 # buysテーブル
@@ -41,16 +42,18 @@
 | Column             | Type     | Options      |
 | ------------------ | -------- | ------------ |
 | post_code          | string   | null: false  |
-| prefectures        | integer  | null: false  |
+| delivery_area_id   | integer  | null: false  |
 | city               | string   | null: false  |
 | addressline        | string   | null: false  |
+| building           | string   |              |
 | phone_number       | string   | null: false  |
 
 # Association
 -belongs_to :user_purchase
+-belongs_to :user
 
 
-# user_purchaseテーブル
+# user_purchasesテーブル
 
 # Association
 | ------------------ | -------------- | ------------------------------ |
