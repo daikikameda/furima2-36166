@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options      |
 | ------------------ | ------ | -----------  |
-| email              | string | unique: true |
+| email              | string | null: false  |
 | encrypted_password | string | null: false  |
 | nickname           | string | null: false  |
 | first_name         | string | null: false  |
@@ -13,6 +13,8 @@
 | kana_last_name     | string | null: false  |
 | birthday           | date   | null: false  |
 
+# Association
+-belongs_to :user_purchase
 
 # displaysテーブル
 
@@ -21,25 +23,36 @@
 | image              | ActiveStorage  |             |
 | item_name          | string         | null: false  |
 | item_explanation   | text           | null: false  |
-| detail             | string         | null: false  |
-| delivery           | string         | null: false  |
+| item_category      | integer        | null: false  |
+| item_condition     | integer        | null: false  |
+| delivery_fee       | integer        | null: false  |
+| delivery_area      | integer        | null: false  |
+| delivery_date      | integer        | null: false  |
 | price              | integer        | null: false  |
 | user               | references     | null: false, foreign_key: true |
+
+# Association
+
+-belongs_to :user_purchase
  
 
 # buysテーブル
 
 | Column             | Type     | Options      |
 | ------------------ | -------- | ------------ |
-| date               | datatime | null: false  |
 | post_code          | string   | null: false  |
+| prefectures        | integer  | null: false  |
 | city               | string   | null: false  |
 | addressline        | string   | null: false  |
-| phonenumber        | numeric  | null: false  |
+| phone_number       | string   | null: false  |
+
+# Association
+-belongs_to :user_purchase
+
 
 # user_purchaseテーブル
 
-| Column             | Type           | Options                        |
+# Association
 | ------------------ | -------------- | ------------------------------ |
 | user               | references     | null: false, foreign_key: true |
 | display            | references     | null: false, foreign_key: true |
