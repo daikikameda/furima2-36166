@@ -4,7 +4,7 @@
 
 | Column             | Type   | Options      |
 | ------------------ | ------ | -----------  |
-| email              | string | unique: true |
+| email              | string | unique: true, null: false |
 | encrypted_password | string | null: false  |
 | nickname           | string | null: false  |
 | first_name         | string | null: false  |
@@ -14,7 +14,6 @@
 | birthday           | date   | null: false  |
 
 # Association
--has_many :user_purchase
 -has_many :displays
 
 # displaysテーブル
@@ -47,15 +46,18 @@
 | addressline        | string   | null: false  |
 | building           | string   |              |
 | phone_number       | string   | null: false  |
+| user_purchases     | references     | null: false, foreign_key: true |
 
 # Association
 -belongs_to :user_purchase
--belongs_to :user
 
 
 # user_purchasesテーブル
 
 # Association
-| ------------------ | -------------- | ------------------------------ |
 | user               | references     | null: false, foreign_key: true |
 | display            | references     | null: false, foreign_key: true |
+
+-belongs_to :user
+-belongs_to :buy
+-belongs_to :display
