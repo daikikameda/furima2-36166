@@ -15,6 +15,7 @@
 
 # Association
 -has_many :displays
+-has_many :user_purchases
 
 # displaysテーブル
 
@@ -32,7 +33,7 @@
 
 # Association
 
--belongs_to :user_purchase
+-has_one :user_purchase
 -belongs_to :user
  
 
@@ -46,7 +47,7 @@
 | addressline        | string   | null: false  |
 | building           | string   |              |
 | phone_number       | string   | null: false  |
-| user_purchases     | references     | null: false, foreign_key: true |
+| user_purchase     | references     | null: false, foreign_key: true |
 
 # Association
 -belongs_to :user_purchase
@@ -58,6 +59,6 @@
 | user               | references     | null: false, foreign_key: true |
 | display            | references     | null: false, foreign_key: true |
 
--belongs_to :user
+-has_one :user
 -belongs_to :buy
 -belongs_to :display
