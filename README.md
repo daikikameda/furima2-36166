@@ -59,6 +59,6 @@
 | user               | references     | null: false, foreign_key: true |
 | display            | references     | null: false, foreign_key: true |
 
--has_one :user
--belongs_to :buy
+-has_one :buy
+-belongs_to :user
 -belongs_to :display
