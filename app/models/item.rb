@@ -2,8 +2,8 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions 
   belongs_to :user
   has_one_attached :image
+  belongs_to :user
   belongs_to :display,  optional: true
-  
   
 
   validates :item_name,        presence: true
@@ -15,5 +15,4 @@ class Item < ApplicationRecord
   validates :delivery_date_id, presence: true
   validates :price,            presence: true, inclusion: {in: 300..9_999_999 }, format: (/\A[0-9]+\z/), numericality: true
   validates :image,            presence: true
-
 end
