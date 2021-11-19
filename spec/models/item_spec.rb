@@ -79,27 +79,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not included in the list")
       end
       it "カテゴリーに「---」が選択されている場合は出品できない" do
-        @item.item_category_id ={id: 1, name: '---'}
+        @item.item_category_id ={id: 0, name: '---'}
         @item.valid?
         expect(@item.errors.full_messages).to include("Item category can't be blank")
       end
       it "商品の状態に「---」が選択されている場合は出品できない" do
-        @item.item_condition_id ={id: 1, name: '---'}
+        @item.item_condition_id ={id: 0, name: '---'}
         @item.valid?
         expect(@item.errors.full_messages).to include("Item condition can't be blank")
       end
       it "配送料の負担に「---」が選択されている場合は出品できない" do
-        @item.delivery_fee_id ={id: 1, name: '---'}
+        @item.delivery_fee_id ={id: 0, name: '---'}
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
       end
       it "発送元の地域に「---」が選択されている場合は出品できない" do
-        @item.delivery_area_id ={id: 1, name: '---'}
+        @item.delivery_area_id ={id: 0, name: '---'}
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery area can't be blank")
       end
       it "発送までの日数に「---」が選択されている場合は出品できない" do
-        @item.delivery_date_id ={id: 1, name: '---'}
+        @item.delivery_date_id ={id: 0, name: '---'}
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery date can't be blank")
       end
