@@ -14,10 +14,10 @@
 | birthday           | date   | null: false  |
 
 # Association
--has_many :displays
+-has_many :items
 -has_many :user_purchases
 
-# displaysテーブル
+# itemsテーブル
 
 | Column             | Type           | Options     |
 | ------------------ | -------------- | ----------- |
@@ -57,8 +57,8 @@
 
 # Association
 | user               | references     | null: false, foreign_key: true |
-| display            | references     | null: false, foreign_key: true |
+| item               | references     | null: false, foreign_key: true |
 
 -has_one :buy
 -belongs_to :user
--belongs_to :display
+-belongs_to :item
