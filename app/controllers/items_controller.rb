@@ -22,6 +22,23 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    unless current_user.id == @item.user_id
+      redirect_to action: :index
+    end
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path      
+    else
+      render :edit
+    end
+  end
+
+
   private
 
   def item_params
@@ -29,4 +46,5 @@ class ItemsController < ApplicationController
       :image, :item_name, :item_explanation, :item_category_id, :item_condition_id, :delivery_fee_id, :delivery_area_id, :delivery_date_id, :price
     ).merge(user_id: current_user.id)
   end
+
 end
