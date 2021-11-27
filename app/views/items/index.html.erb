@@ -128,8 +128,8 @@
           <%= link_to item_path(item.id), method: :get do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
-                <%# if item.present?  %>
-                  <%#<div class='sold-out'>
+                <% if item.user_purchase.present? %>
+                  <div class='sold-out'>
                     <span>Sold Out!!</span>
                   </div>
                 <% end %>
