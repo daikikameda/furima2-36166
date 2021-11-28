@@ -4,7 +4,7 @@ FactoryBot.define do
     delivery_area_id {Faker::Number.between(from: 1, to: 31)}
     city       {'港区品川'}
     addressline {'2-2-2'}
-    building   {''}
+    building   {Faker::Lorem.sentence}
     phone_number {'09012445678'}
     token {"tok_abcdefghijk00000000000000000"}
   end
