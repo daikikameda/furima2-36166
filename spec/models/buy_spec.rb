@@ -72,6 +72,26 @@ RSpec.describe BuyForm, type: :model do
         @buy_form.valid?
         expect(@buy_form.errors.full_messages).to include("Item can't be blank")
       end
+      it '発送元の地域に「---」が選択されている場合は出品できない' do
+        @buy_form.delivery_area_id = 0
+        @buy_form.valid?
+        expect(@buy_form.errors.full_messages).to include("Delivery area can't be blank")
+      end
+      it '9桁以下では登録できないこと' do
+        @buy_form.phone_number = '09001111'
+        @buy_form.valid?
+        expect(@buy_form.errors.full_messages).to include("Phone number is too short (minimum is 10 characters)")
+      end
+      it '12桁以上では登録できないこと' do
+        @buy_form.phone_number = '09001112121211'
+        @buy_form.valid?
+        expect(@buy_form.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
+      it '半角数字以外が含まれている場合、登録できないこと' do
+        @buy_form.phone_number = '０９０１２３４２２２２'
+        @buy_form.valid?
+        expect(@buy_form.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end

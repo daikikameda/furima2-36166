@@ -1,9 +1,9 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :new]
 
 
   def index
-    @item = Item.find(params[:item_id])
     @buy_form = BuyForm.new
     if current_user == @item.user
       redirect_to root_path
@@ -12,11 +12,9 @@ class BuysController < ApplicationController
 
   def new
     @buy_form = BuyForm.new
-    @item = Item.find(params[:item_id])
   end  
 
   def create
-    @item = Item.find(params[:item_id])
     @buy_form = BuyForm.new(set_params)
     if @buy_form.valid?
       pay_item
@@ -25,8 +23,7 @@ class BuysController < ApplicationController
     else
       render action: :index
     end
-    
-
+  
   end
 
   private
@@ -48,8 +45,7 @@ class BuysController < ApplicationController
     params.permit(:token)
   end
 
-  def move_to_index
+  def set_item
     @item = Item.find(params[:item_id])
-    redirect_to new_user_session_path unless user_signed_in?
   end
 end

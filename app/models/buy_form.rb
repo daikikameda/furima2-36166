@@ -11,7 +11,7 @@ class BuyForm
     validates :post_code, format: { with: (/\A\d{3}[-]\d{4}\z/) }
     validates :city
     validates :addressline
-    validates :phone_number, format: { with: (/\A0[5789]0\d{4}\d{4}\z/)}
+    validates :phone_number, length: { in: 10..11 }, format: { with: /\A[0-9]+\z/ }
     validates :token
   end
   
