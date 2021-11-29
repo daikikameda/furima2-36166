@@ -5,7 +5,7 @@ class BuysController < ApplicationController
 
   def index
     @buy_form = BuyForm.new
-    if current_user == @item.user
+    unless current_user.id == @item.user
       redirect_to root_path
     end
   end
@@ -23,7 +23,7 @@ class BuysController < ApplicationController
     else
       render action: :index
     end
-  
+    
   end
 
   private
