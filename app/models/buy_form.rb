@@ -16,7 +16,7 @@ class BuyForm
   end
   
   def save
-    Buy.create(post_code: post_code, delivery_area_id: delivery_area_id, city: city, addressline: addressline, building: building, phone_number: phone_number)
     user_purchase = UserPurchase.create(item_id: item_id, user_id: user_id)
+    Buy.create(post_code: post_code, delivery_area_id: delivery_area_id, city: city, addressline: addressline, building: building, phone_number: phone_number, user_purchase_id: user_purchase.id)
   end
 end
