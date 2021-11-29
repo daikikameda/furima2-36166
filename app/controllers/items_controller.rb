@@ -21,14 +21,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    if @item.user_purchase.present?
-      redirect_to action: :index
-    end
   end
 
   def edit
     unless current_user.id == @item.user_id
-      redirect_to action: :edit
+      redirect_to root_path
+    end
+    if @item.user_purchase.present?
+      redirect_to action: :index
     end
   end
 

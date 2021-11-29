@@ -5,7 +5,6 @@ RSpec.describe BuyForm, type: :model do
     user = FactoryBot.create(:user)
     item = FactoryBot.create(:item)
     item.image = fixture_file_upload('public/image/sample1.png')
-    user_purchase = UserPurchase.create(user_id: user.id, item_id: item.id)
     @buy_form = FactoryBot.build(:buy_form, user_id: user.id, item_id: item.id)
     sleep 0.1
   end
