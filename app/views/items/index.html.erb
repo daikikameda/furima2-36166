@@ -128,7 +128,7 @@
           <%= link_to item_path(item.id), method: :get do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
-                <% unless item.user_purchase.present? %>
+                <% if item.user_purchase.present? %>
                   <div class='sold-out'>
                     <span>Sold Out!!</span>
                   </div>
