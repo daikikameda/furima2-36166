@@ -154,6 +154,8 @@
   padding: 10px;
   border: solid 2px #dedede;
   resize: none;
+  display: block;
+  margin-top: 20px;
 }
 
 .comment-warn {
@@ -204,4 +206,15 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+.user-info{
+  color: gray;
+  font-weight: bold;
+}
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
 }
