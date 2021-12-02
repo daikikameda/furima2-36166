@@ -6,6 +6,7 @@ if(location.pathname.match(/\/items\/\d/)){
     channel: "CommentChannel",
     item_id: location.pathname.match(/\d+/)[0]
   }, {
+
     connected() {
       // Called when the subscription is ready for use on the server
     },
