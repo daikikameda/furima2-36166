@@ -11,7 +11,7 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it 'タグの投稿がなくでも保存できる' do
-        @item.tag_name = ''
+        @item.tag_name = ""
         expect(@item).to be_valid
       end
     end
