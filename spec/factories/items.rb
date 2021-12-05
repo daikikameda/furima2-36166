@@ -8,6 +8,7 @@ FactoryBot.define do
     delivery_area_id { Faker::Number.between(from: 1, to: 3) }
     delivery_date_id { Faker::Number.between(from: 1, to: 3) }
     price { '333333' }
+    tag_name { Faker::Lorem.sentence }
     association :user
 
     after(:build) do |item|

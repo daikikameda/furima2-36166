@@ -10,6 +10,10 @@ RSpec.describe Item, type: :model do
       it '全て記入されて入れば保存される' do
         expect(@item).to be_valid
       end
+      it 'タグの投稿がなくでも保存できる' do
+        @item.tag_name = ''
+        expect(@item).to be_valid
+      end
     end
 
     context '商品が保存できない場合' do

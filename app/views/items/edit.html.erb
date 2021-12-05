@@ -115,6 +115,14 @@ app/assets/stylesheets/items/new.css %>
         </div>
       </div>
       <%# /販売価格 %>
+      <%# タグ %>
+      <div class="tag_place">
+        <span>タグ</span>
+          <span><%= f.text_field :tag_name, class:"tag_name", id:"tag_name", placeholder:"例）タグ" %></span>
+       </div>
+      <%# /タグ %>
+
+
 
       <%# 注意書き %>
       <div class="caution">

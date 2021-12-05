@@ -74,3 +74,19 @@
 
 -belongs_to :user
 -belongs_to :item
+
+# tagsテーブル
+| Column             | Type           | Options                              |
+| ------------------ | -------------- | ------------------------------------ |
+| text               | string           |                                      |
+
+-belongs_to :post_tag
+
+# post_tagテーブル
+| Column             | Type           | Options                              |
+| ------------------ | -------------- | ------------------------------------ |
+| tag                | references     | null: false, foreign_key: true |
+| item               | references     | null: false, foreign_key: true |
+
+-has_many :tags
+-belongs_to :item
