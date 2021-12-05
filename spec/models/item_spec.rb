@@ -10,6 +10,10 @@ RSpec.describe Item, type: :model do
       it '全て記入されて入れば保存される' do
         expect(@item).to be_valid
       end
+      it 'タグの投稿がなくでも保存できる' do
+        @item.tag_name = ""
+        expect(@item).to be_valid
+      end
     end
 
     context '商品が保存できない場合' do
@@ -102,11 +106,6 @@ RSpec.describe Item, type: :model do
         @item.delivery_date_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery date can't be blank")
-      end
-      it "タグがないと保存できない" do
-        @item.tag_name = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Tag name can't be blank")
       end
     end
   end
