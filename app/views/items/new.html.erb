@@ -119,7 +119,8 @@
     <%# タグ %>
     <div class="tag_place">
       <span>タグ</span>
-        <span><%= f.text_field :tag_name, class:"tag_name", id:"tag_name", placeholder:"例）タグ" %></span>
+      <span class="indispensable">必須</span>
+        <%= f.text_field :tag_name, class:"tag_name", id:"tag_name", placeholder:"例）タグ" %>
     </div>
     <%# /タグ %>
 

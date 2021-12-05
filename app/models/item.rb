@@ -19,4 +19,5 @@ class Item < ApplicationRecord
   validates :delivery_date_id,  presence: true, numericality: { other_than: 0, message: "can't be blank" }
   validates :price,             presence: true, inclusion: { in: 300..9_999_999 }, format: /\A[0-9]+\z/, numericality: true
   validates :image,             presence: true
+  validates :tag_name,          presence: true
 end
