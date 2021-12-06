@@ -238,8 +238,8 @@
 }
 
 .tag-name {
-  width: 250px;
+  width: 300px;
   height: 30px;
   text-align: right;
-  padding-right: 10px;
+  padding: 16px 16px;
 }
